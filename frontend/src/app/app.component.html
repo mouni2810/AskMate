@@ -1,0 +1,54 @@
+<div class="app-layout">
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <a routerLink="/" class="brand-link">
+        <div class="brand-logo">
+          <span class="material-icons">auto_awesome</span>
+        </div>
+        <div class="brand-title">
+          <span class="brand-name">AskMate</span>
+          <span class="brand-tagline">AI Knowledge Assistant</span>
+        </div>
+      </a>
+    </div>
+
+    <nav class="nav-links">
+      <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <span class="material-icons">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a routerLink="/documents" routerLinkActive="active" class="nav-item">
+        <span class="material-icons">folder</span>
+        <span>Documents</span>
+      </a>
+      <a routerLink="/chat" routerLinkActive="active" class="nav-item">
+        <span class="material-icons">forum</span>
+        <span>AI Chat</span>
+      </a>
+      <a routerLink="/summary" routerLinkActive="active" class="nav-item">
+        <span class="material-icons">summarize</span>
+        <span>Summarize</span>
+      </a>
+      <a routerLink="/voice" routerLinkActive="active" class="nav-item">
+        <span class="material-icons">mic</span>
+        <span>Voice Assistant</span>
+      </a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="connection-pill" [class.connected]="health?.status === 'healthy'" [class.disconnected]="!health || health.status !== 'healthy'">
+        <span class="dot"></span>
+        <span class="label">{{ health?.status === 'healthy' ? 'API Online' : 'API Offline' }}</span>
+      </div>
+      <button class="btn-refresh" (click)="checkHealth()" title="Refresh connection">
+        <span class="material-icons">refresh</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main View Area -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,19 @@
+# Backend environment variables and secrets
+.env
+.env.*
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+venv/
+.venv/
+
+# Local databases and uploads
+data/
+*.db
+*.sqlite3
+
